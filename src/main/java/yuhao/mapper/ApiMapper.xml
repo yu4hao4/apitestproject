@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yuhao.mapper.ApiMapper">
+    <insert id="addApi" parameterType="yuhao.entity.ApiData">
+        insert into 
+    </insert>
+    
+<!--    &lt;!&ndash;    查询&ndash;&gt;-->
+<!--    <select id="getAllCustomers" resultType="cn.entity.Customer">-->
+<!--        select * from customer-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;    插入&ndash;&gt;-->
+<!--    <insert id="addCustomer" parameterType="cn.entity.Customer">-->
+<!--      insert into customer (customer_name,customer_phonenumber,customer_wx,customer_facebook,-->
+<!--      customer_whatsapp,customer_vip,customer_black,customer_remarks,customer_photouri) -->
+<!--      value (#{customer_name},#{customer_phonenumber},#{customer_wx},#{customer_facebook},-->
+<!--      #{customer_whatsapp},#{customer_vip},#{customer_black},#{customer_remarks},#{customer_photouri}) -->
+<!--    </insert>-->
+
+<!--    &lt;!&ndash;    更新&ndash;&gt;-->
+<!--    <update id="updateCustomer" parameterType="cn.entity.Customer">-->
+<!--        update customer-->
+<!--        <set>-->
+<!--            <if test="customer_name != null and customer_name != '' ">-->
+<!--                customer_name = #{customer_name} ,-->
+<!--            </if>-->
+<!--            <if test="customer_phonenumber != null and customer_phonenumber != '' ">-->
+<!--                customer_phonenumber = #{customer_phonenumber} ,-->
+<!--            </if>-->
+<!--            <if test="customer_wx != null and customer_wx != '' ">-->
+<!--                customer_wx = #{customer_wx} ,-->
+<!--            </if>-->
+<!--            <if test="customer_facebook != null and customer_facebook != '' ">-->
+<!--                customer_facebook = #{customer_facebook} ,-->
+<!--            </if>-->
+<!--            <if test="customer_whatsapp != null and customer_whatsapp != '' ">-->
+<!--                customer_whatsapp = #{customer_whatsapp} ,-->
+<!--            </if>-->
+<!--            <if test="customer_vip != null and customer_vip != '' ">-->
+<!--                customer_vip = #{customer_vip} ,-->
+<!--            </if>-->
+<!--            <if test="customer_black != null and customer_black != '' ">-->
+<!--                customer_black = #{customer_black} ,-->
+<!--            </if>-->
+<!--            <if test="customer_remarks != null and customer_remarks != '' ">-->
+<!--                customer_remarks = #{customer_remarks} ,-->
+<!--            </if>-->
+<!--            <if test="customer_photouri != null and customer_photouri != '' ">-->
+<!--                customer_photouri = #{customer_photouri} ,-->
+<!--            </if>-->
+<!--            <if test="customer_cancelnumber != null and customer_cancelnumber != '' ">-->
+<!--                customer_cancelnumber = #{customer_cancelnumber} ,-->
+<!--            </if>-->
+<!--        </set>-->
+<!--        where-->
+<!--        customer_id = #{customer_id}-->
+<!--    </update>-->
+
+<!--    &lt;!&ndash;    删除，可批量&ndash;&gt;-->
+<!--    <delete id="deleteCustomer" parameterType="java.util.List">-->
+<!--        &lt;!&ndash; delete from emp where empno in(7789,7790) &ndash;&gt;-->
+<!--        &lt;!&ndash; forEach : 用来循环 collection : 用来指定循环的数据的类型 可以填的值有：array,list,map item -->
+<!--            : 循环中为每个循环的数据指定一个别名 index : 循环中循环的下标 open : 开始 close : 结束 separator : 数组中元素之间的分隔符 &ndash;&gt;-->
+<!--        delete from customer where customer_id in-->
+<!--        <foreach collection="list" item="arr" index="no" open="("-->
+<!--                 separator="," close=")">-->
+<!--            #{arr.customer_id}-->
+<!--        </foreach>-->
+<!--    </delete>-->
+
+<!--    &lt;!&ndash;    查询&ndash;&gt;-->
+<!--    <select id="searchCustomer" parameterType="cn.entity.Customer" resultType="cn.entity.Customer">-->
+<!--        select * from customer where 1=1-->
+<!--        <if test="customer_name != null and customer_name != '' ">-->
+<!--            and customer_name = #{customer_name}-->
+<!--        </if>-->
+<!--        <if test="customer_phonenumber != null and customer_phonenumber != '' ">-->
+<!--            and customer_phonenumber like '%${customer_phonenumber}%'-->
+<!--        </if>-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;    根据客户查询订货信息&ndash;&gt;-->
+<!--    <select id="previewCustomer" parameterType="cn.entity.PickUpGoods_Orders" resultType="cn.entity.Customer_Goods">-->
+<!--        select orders_id,orders_goods_number,orders_goods_name,-->
+<!--        orders_goods_quantity,orders_number,orders_createtime,-->
+<!--        orders_goods_arrivaltime,orders_pickingtime,-->
+<!--        orders_canceltime,g.goods_photouri as orders_goods_photouri-->
+<!--        from orders,goods g where 1=1 and orders.orders_goods_number=g.goods_number and orders.orders_goods_name=g.goods_name-->
+<!--        &#45;&#45;         and (orders_pickingtime is null or orders_pickingtime = '')-->
+<!--        &#45;&#45;         and (orders_canceltime is null or orders_canceltime = '')-->
+<!--        <if test="customer_name != null and customer_name != '' ">-->
+<!--            and orders_customer_name = #{customer_name}-->
+<!--        </if>-->
+<!--        <if test="customer_phonenumber != null and customer_phonenumber != '' ">-->
+<!--            and orders_customer_phonenumber = #{customer_phonenumber}-->
+<!--        </if>-->
+<!--        order by orders_goods_arrivaltime desc-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;    根据客户查询订货信息&ndash;&gt;-->
+<!--    <select id="previewCustomerByPageInfo" parameterType="cn.entity.PickUpGoods_Orders" resultType="cn.entity.Customer_Goods">-->
+<!--        select orders_id,orders_goods_number,orders_goods_name,-->
+<!--        orders_goods_quantity,orders_number,orders_createtime,-->
+<!--        orders_goods_arrivaltime,orders_pickingtime,-->
+<!--        orders_canceltime,g.goods_photouri as orders_goods_photouri-->
+<!--        from orders,goods g where 1=1 and orders.orders_goods_number=g.goods_number and orders.orders_goods_name=g.goods_name-->
+<!--        and (orders_pickingtime is null or orders_pickingtime = '')-->
+<!--        and (orders_canceltime is null or orders_canceltime = '')-->
+<!--        <if test="customer_name != null and customer_name != '' ">-->
+<!--            and orders_customer_name = #{customer_name}-->
+<!--        </if>-->
+<!--        <if test="customer_phonenumber != null and customer_phonenumber != '' ">-->
+<!--            and orders_customer_phonenumber = #{customer_phonenumber}-->
+<!--        </if>-->
+<!--        order by orders_goods_arrivaltime desc-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;    获得黑名单客户&ndash;&gt;-->
+<!--    <select id="getAllBlackCustomer" resultType="cn.entity.Black_Customer">-->
+<!--        select customer_name,customer_phonenumber,customer_cancelnumber -->
+<!--        from customer where customer.customer_black = '1'-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;    根据客户电话获得客户信息&ndash;&gt;-->
+<!--    <select id="searchCustomerByPhoneNumber" parameterType="String" resultType="cn.entity.Customer">-->
+<!--        select customer_name,customer_photouri,customer_black from customer where customer_phonenumber = #{customer_phonenumber}-->
+<!--    </select>-->
+</mapper>
